@@ -1,0 +1,13 @@
+{
+  "name": "expense-tracker-app",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "start": "concurrently \"npm run server\" \"npm run mobile\"",
+    "server": "cd backend && npm start",
+    "mobile": "cd mobile-app && npx expo start"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
