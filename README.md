@@ -1,39 +1,47 @@
 # Expense Tracker App
 
-## Project Overview
+A web-based and mobile-ready expense tracking application to manage income and expenses with secure authentication, transaction history, and balance insights.
 
-Expense Tracker is a full-stack mobile app where users can register, log in, and manage their personal expenses. It includes JWT-based authentication, protected expense APIs, and a React Native (Expo) app with expense summary insights.
+## Description
+
+Expense Tracker App helps users record daily financial transactions, monitor total balance, and analyze spending categories. The project uses a Node.js and Express backend with MongoDB for data storage, and a React Native (Expo) client that also supports web development mode.
+
+## Features
+
+- User registration and login with JWT authentication
+- Add new transactions (income and expense)
+- View all transactions in a list
+- Edit existing transactions
+- Delete transactions
+- Category-wise expense summary
+- Total expense and balance tracking
+- Pull-to-refresh and retry states for better UX
+- Form validation for auth and transaction inputs
 
 ## Tech Stack
 
-- Backend: Node.js, Express.js, MongoDB, Mongoose, JWT, bcryptjs
-- Mobile App: React Native, Expo, Expo Router, Context API, AsyncStorage, Axios
-- Tooling: concurrently for running backend and mobile app together
+- Frontend: React Native (Expo, Expo Router, Context API)
+- Backend: Node.js, Express.js
+- Database: MongoDB with Mongoose
+- Networking: Axios
+- Authentication: JSON Web Token (JWT), bcryptjs
 
-## Project Structure
+## Installation
 
-- backend: Express + MongoDB API server
-- mobile-app: React Native Expo application
-- package.json (root): single command startup for backend and mobile app
-- README.md (root): setup and run guide
+1. Clone the repository
 
-## Prerequisites
+```bash
+git clone https://github.com/Ansh-pal/-Expense-Tracker-App.git
+cd expense-tracker-app
+```
 
-- Node.js (v18+ recommended)
-- MongoDB (local instance or cloud connection string)
-- Expo CLI support via npx
-
-## Setup Instructions
-
-1. Clone and enter the project folder.
-
-2. Install root dependencies.
+2. Install root dependencies
 
 ```bash
 npm install
 ```
 
-3. Install backend dependencies.
+3. Install backend dependencies
 
 ```bash
 cd backend
@@ -41,7 +49,7 @@ npm install
 cd ..
 ```
 
-4. Install mobile app dependencies.
+4. Install mobile client dependencies
 
 ```bash
 cd mobile-app
@@ -49,66 +57,84 @@ npm install
 cd ..
 ```
 
-## Environment Variables
+## Environment Setup
 
-Create backend env file at backend/.env:
+Create a file at backend/.env:
 
 ```env
 PORT=5000
-MONGO_URI=mongodb://127.0.0.1:27017/expense-tracker
-JWT_SECRET=your_secure_secret
-```
-
-Optional (already supported by backend):
-
-```env
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_secret_key
 JWT_EXPIRES_IN=7d
 ```
 
-For the Expo app, create mobile-app/.env if needed:
+Optional for client API override at mobile-app/.env:
 
 ```env
-EXPO_PUBLIC_API_URL=http://10.0.2.2:5000/api
+EXPO_PUBLIC_API_URL=http://localhost:5000/api
 ```
 
-## Run the App
+## Run the Project
 
-From the root folder, run:
+From the project root:
 
 ```bash
 npm start
 ```
 
-This single command starts:
+This starts both services concurrently:
 
-- Backend server from backend
-- Expo mobile app from mobile-app
+- Backend API server on port 5000
+- Expo development server on port 8081
 
-## API Endpoints
+Alternative commands:
 
-| Method | Endpoint | Protected | Description |
-| --- | --- | --- | --- |
-| POST | /api/auth/register | No | Register a new user |
-| POST | /api/auth/login | No | Login and receive JWT token |
-| GET | /api/expenses | Yes | Get all expenses for logged-in user |
-| POST | /api/expenses | Yes | Create a new expense |
-| PUT | /api/expenses/:id | Yes | Update an existing expense |
-| DELETE | /api/expenses/:id | Yes | Delete an expense |
-| GET | /api/expenses/summary/category | Yes | Get total and category-wise summary |
+```bash
+npm run server
+npm run mobile
+```
 
-Authorization header format:
+## Folder Structure
 
-```http
-Authorization: Bearer <token>
+```text
+expense-tracker-app/
+|-- backend/
+|   |-- controllers/
+|   |-- middleware/
+|   |-- models/
+|   |-- routes/
+|   |-- utils/
+|   |-- server.js
+|-- mobile-app/
+|   |-- app/
+|   |-- components/
+|   |-- context/
+|   |-- screens/
+|   |-- services/
+|   |-- utils/
+|-- package.json
+|-- README.md
 ```
 
 ## Screenshots
 
-Add screenshots here:
+Add screenshots before submission:
 
-- Login Screen (placeholder)
-- Register Screen (placeholder)
-- Dashboard Screen (placeholder)
-- Add Expense Screen (placeholder)
-- Edit Expense Screen (placeholder)
-# Expense-Tracker-App
+- Login Screen: [Insert image]
+- Register Screen: [Insert image]
+- Dashboard Screen: [Insert image]
+- Add Expense Screen: [Insert image]
+- Edit Expense Screen: [Insert image]
+
+## Future Improvements
+
+- Add monthly and yearly analytics charts
+- Export transactions to CSV or PDF
+- Add budget limits and alerts
+- Add dark mode and theme customization
+- Add unit and integration tests
+- Add CI pipeline for automated checks
+
+## Author
+
+Ansh Pal
